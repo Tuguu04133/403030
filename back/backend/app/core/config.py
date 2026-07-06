@@ -14,7 +14,9 @@ class Settings(BaseSettings):
         default="postgresql+psycopg://postgres:postgres@localhost:5432/hackathon"
     )
     create_tables_on_startup: bool = True
-    backend_cors_origins: str = "http://localhost:3000,http://localhost:5173"
+    backend_cors_origins: str = (
+        "http://localhost:3000,http://localhost:5173,https://403030.vercel.app"
+    )
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
