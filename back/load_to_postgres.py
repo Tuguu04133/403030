@@ -13,11 +13,20 @@ except ImportError:
     sys.exit(1)
 
 def get_db_connection():
+    database_url = os.environ.get("DATABASE_URL")
+    if database_url:
+        try:
+            return psycopg2.connect(database_url)
+        except Exception as e:
+            print(f"\nDatabase Connection Failed: {e}")
+            sys.exit(1)
+
     host = os.environ.get("DB_HOST")
     port = os.environ.get("DB_PORT")
     dbname = os.environ.get("DB_NAME")
     user = os.environ.get("DB_USER")
     password = os.environ.get("DB_PASSWORD")
+    sslmode = os.environ.get("DB_SSLMODE", "prefer")
 
     if not all([host, port, dbname, user, password]):
         print("--- PostgreSQL Connection Settings ---")
@@ -33,13 +42,17 @@ def get_db_connection():
         if not password:
             password = input("DB Password: ").strip()
 
+    if "neon.tech" in host:
+        sslmode = "require"
+
     try:
         conn = psycopg2.connect(
             host=host,
             port=port,
             dbname=dbname,
             user=user,
-            password=password
+            password=password,
+            sslmode=sslmode,
         )
         return conn
     except Exception as e:
