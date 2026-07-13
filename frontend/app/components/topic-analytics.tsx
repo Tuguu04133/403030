@@ -20,9 +20,9 @@ export default function TopicAnalytics({
   const maxSupervisorAvg = Math.max(...stats.map(s => s.supervisorAvg), 15);
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-card-border shadow-sm flex flex-col h-full font-sans">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 border border-card-border shadow-sm flex flex-col h-full font-sans">
       {/* Card Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
         <div className="flex items-center gap-2.5">
           <GraduationCap className="w-5 h-5 text-primary-teal" />
           <div>
@@ -43,11 +43,11 @@ export default function TopicAnalytics({
       </div>
 
       {/* Analytics chart and details panel layout */}
-      <div className="grid grid-cols-3 gap-6 flex-1 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 flex-1 items-stretch">
         {/* SVG Dual-Bar Chart */}
-        <div className="col-span-2 flex flex-col justify-between border-r border-gray-100 pr-6 min-h-[220px]">
+        <div className="lg:col-span-2 flex flex-col justify-between lg:border-r border-gray-100 lg:pr-6 min-h-[220px] overflow-x-auto">
           {/* Chart Y Axis Labels */}
-          <div className="relative flex-1 flex items-stretch">
+          <div className="relative flex-1 flex min-w-[560px] items-stretch">
             {/* Y axis helper lines */}
             <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
               <div className="border-b border-dashed border-gray-100 w-full h-0" />
@@ -127,7 +127,7 @@ export default function TopicAnalytics({
           </div>
           
           {/* Timeline / Scale Indicators */}
-          <div className="flex justify-between items-center text-[10px] text-gray-400 font-semibold px-4 pt-2 border-t border-gray-50 mt-2">
+          <div className="flex min-w-[560px] flex-col gap-2 sm:flex-row sm:justify-between sm:items-center text-[10px] text-gray-400 font-semibold px-4 pt-2 border-t border-gray-50 mt-2">
             <span className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5 bg-primary-teal rounded-sm" />
               Хамгаалалтын дундаж
@@ -140,7 +140,7 @@ export default function TopicAnalytics({
         </div>
 
         {/* Dynamic Detail Card panel on the right */}
-        <div className="col-span-1 flex flex-col justify-between py-1 bg-gray-50 p-4 rounded-xl">
+        <div className="flex flex-col justify-between py-1 bg-gray-50 p-4 rounded-xl">
           <div className="space-y-4">
             <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">Дэлгэрэнгүй</span>
             
@@ -189,3 +189,4 @@ export default function TopicAnalytics({
     </div>
   );
 }
+

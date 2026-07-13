@@ -47,7 +47,7 @@ export default function GradePieChart({ students }: GradePieChartProps) {
   let cumulativePercent = 0;
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-card-border shadow-sm flex flex-col h-full font-sans">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 border border-card-border shadow-sm flex flex-col h-full font-sans">
       {/* Header */}
       <div className="flex items-center gap-2.5 mb-6">
         <PieChart className="w-5 h-5 text-primary-teal" />
@@ -63,9 +63,9 @@ export default function GradePieChart({ students }: GradePieChartProps) {
           <p className="text-xs">Шүүлтүүрт дүнгийн мэдээлэл олдсонгүй.</p>
         </div>
       ) : (
-        <div className="flex flex-col sm:flex-row items-center justify-around gap-8 flex-1">
+        <div className="flex flex-col sm:flex-row items-center justify-around gap-5 sm:gap-8 flex-1">
           {/* Custom SVG Donut Plot */}
-          <div className="relative w-52 h-52 shrink-0">
+          <div className="relative h-44 w-44 sm:w-52 sm:h-52 shrink-0">
             <svg viewBox="0 0 160 160" className="w-full h-full transform -rotate-90">
               {/* Background Circle */}
               <circle
@@ -165,3 +165,4 @@ export default function GradePieChart({ students }: GradePieChartProps) {
     </div>
   );
 }
+

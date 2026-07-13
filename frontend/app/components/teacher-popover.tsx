@@ -13,8 +13,8 @@ export default function TeacherPopover({ profile, loading, onClose }: TeacherPop
   // Loading wrapper
   if (loading || !profile) {
     return (
-      <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 font-sans">
-        <div className="bg-white rounded-2xl w-[360px] p-12 shadow-2xl border border-card-border flex flex-col items-center justify-center gap-2">
+      <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 font-sans p-4">
+        <div className="bg-white rounded-2xl w-full max-w-[360px] p-8 sm:p-12 shadow-2xl border border-card-border flex flex-col items-center justify-center gap-2">
           <Loader2 className="w-8 h-8 text-primary-teal animate-spin" />
           <span className="text-xs text-gray-400 font-semibold">Багшийн мэдээллийг ачаалж байна...</span>
         </div>
@@ -48,9 +48,9 @@ export default function TeacherPopover({ profile, loading, onClose }: TeacherPop
   const closedPathD = `${pathD} L 270 100 L 10 100 Z`;
 
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 font-sans animate-fadeIn">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 font-sans animate-fadeIn p-4">
       {/* Popover Card */}
-      <div className="bg-white rounded-2xl w-[360px] p-6 shadow-2xl border border-card-border relative animate-scaleUp">
+      <div className="bg-white rounded-2xl w-full max-w-[360px] p-4 sm:p-6 shadow-2xl border border-card-border relative animate-scaleUp">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -160,3 +160,4 @@ export default function TeacherPopover({ profile, loading, onClose }: TeacherPop
     </div>
   );
 }
+

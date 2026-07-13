@@ -59,7 +59,7 @@ export default function StudentList({
       )}
 
       {/* Header with filters */}
-      <div className="p-6 border-b border-card-border flex flex-col md:flex-row md:items-center justify-between gap-4 shrink-0">
+      <div className="p-4 sm:p-6 border-b border-card-border flex flex-col md:flex-row md:items-center justify-between gap-4 shrink-0">
         <div className="flex items-center gap-2.5">
           <Users className="w-5 h-5 text-primary-teal" />
           <div>
@@ -69,7 +69,7 @@ export default function StudentList({
         </div>
 
         {/* Level Filter tabs */}
-        <div className="flex flex-wrap items-center gap-2 bg-gray-50 border border-card-border p-1 rounded-xl text-xs font-semibold self-start md:self-auto">
+        <div className="flex w-full flex-wrap items-center gap-2 bg-gray-50 border border-card-border p-1 rounded-xl text-xs font-semibold md:w-auto md:self-auto">
           {[
             { id: "ALL", label: "Бүгд" },
             { id: "Excellent", label: "Маш сайн" },
@@ -96,7 +96,7 @@ export default function StudentList({
 
       {/* Table Area */}
       <div className="flex-1 overflow-x-auto min-h-[350px] max-h-[500px]">
-        <table className="w-full text-left text-xs border-collapse">
+        <table className="min-w-[860px] w-full text-left text-xs border-collapse">
           <thead>
             <tr className="text-gray-400 border-b border-card-border bg-gray-50/50 select-none uppercase font-bold text-[10px] tracking-wider sticky top-0 z-10">
               <th className="py-3 px-6">Оюутан</th>
@@ -192,7 +192,7 @@ export default function StudentList({
 
         {/* Page bubbles and navigation */}
         {totalPages > 1 && (
-          <div className="flex items-center gap-2">
+          <div className="flex max-w-full flex-wrap items-center justify-center gap-2">
             <button
               onClick={() => setPage(Math.max(1, page - 1))}
               disabled={page === 1}
@@ -201,7 +201,7 @@ export default function StudentList({
               <ChevronLeft className="w-4 h-4" />
             </button>
 
-            <div className="flex items-center gap-1.5">
+            <div className="flex max-w-full flex-wrap items-center justify-center gap-1.5">
               {pageNumbers.map((num) => {
                 const isActive = num === page;
                 return (
@@ -235,3 +235,4 @@ export default function StudentList({
     </div>
   );
 }
+

@@ -214,7 +214,7 @@ export default function AdviserRecommender({ onSelectTeacher, onSelectStudent }:
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-card-border shadow-sm flex flex-col font-sans space-y-5 relative overflow-hidden">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 border border-card-border shadow-sm flex flex-col font-sans space-y-5 relative overflow-hidden">
       {/* Loading overlay spinner */}
       {loading && (
         <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] flex items-center justify-center z-10 animate-fadeIn">
@@ -239,7 +239,7 @@ export default function AdviserRecommender({ onSelectTeacher, onSelectStudent }:
         <label className="text-xs font-bold text-gray-400 uppercase tracking-wide text-left block">
           Таны төлөвлөж буй дипломын сэдэв:
         </label>
-        <div className="flex gap-2.5">
+        <div className="flex flex-col gap-2.5 sm:flex-row">
           <input
             type="text"
             placeholder="Жишээ нь: Хиймэл оюун ашиглан царай таних систем, Unity RPG тоглоом хөгжүүлэх..."
@@ -250,7 +250,7 @@ export default function AdviserRecommender({ onSelectTeacher, onSelectStudent }:
           <button
             type="submit"
             disabled={loading || !subjectInput.trim()}
-            className="px-5 bg-primary-teal text-white hover:bg-primary-teal-light disabled:opacity-50 disabled:cursor-not-allowed rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center gap-2 cursor-pointer shrink-0"
+            className="px-5 py-3 sm:py-0 bg-primary-teal text-white hover:bg-primary-teal-light disabled:opacity-50 disabled:cursor-not-allowed rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer shrink-0"
           >
             <Search className="w-4 h-4" />
             Хайх
@@ -261,10 +261,10 @@ export default function AdviserRecommender({ onSelectTeacher, onSelectStudent }:
       {/* Results grid or initial placeholder prompt */}
       {hasSearched ? (
         detectedField && (recommendedAdvisers.length > 0 || inspirationalTheses.length > 0) ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 animate-fadeIn">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 pt-2 animate-fadeIn">
             {/* Recommended Advisers */}
-            <div className="space-y-3.5 md:border-r border-gray-100 pr-0 md:pr-6">
-              <div className="flex items-center gap-2 text-xs font-bold text-primary-teal bg-primary-teal/5 px-3 py-2 rounded-xl">
+            <div className="space-y-3.5 lg:border-r border-gray-100 pr-0 lg:pr-6">
+              <div className="flex min-w-0 flex-wrap items-center gap-2 text-xs font-bold text-primary-teal bg-primary-teal/5 px-3 py-2 rounded-xl">
                 <UserCheck className="w-4 h-4 text-primary-teal" />
                 <span>Тохирох Удирдагч Багш нар</span>
                 <span className="ml-auto text-[9px] bg-primary-teal text-white px-2 py-0.5 rounded font-extrabold truncate">
@@ -277,7 +277,7 @@ export default function AdviserRecommender({ onSelectTeacher, onSelectStudent }:
                   <div
                     key={teacher.teacherId}
                     onClick={() => onSelectTeacher(teacher.teacherId)}
-                    className="flex items-center justify-between p-2.5 bg-gray-50/50 hover:bg-gray-50 border border-card-border rounded-xl cursor-pointer transition-all"
+                    className="flex items-center justify-between gap-3 p-2.5 bg-gray-50/50 hover:bg-gray-50 border border-card-border rounded-xl cursor-pointer transition-all"
                   >
                     <div className="flex items-center gap-2.5">
                       <span className="w-5 h-5 rounded-full bg-primary-teal/10 text-primary-teal flex items-center justify-center font-bold text-[9px] shrink-0">
@@ -328,7 +328,7 @@ export default function AdviserRecommender({ onSelectTeacher, onSelectStudent }:
                         } as any);
                       }
                     }}
-                    className="flex items-center justify-between p-2.5 bg-gray-50/50 hover:bg-gray-50 border border-card-border rounded-xl cursor-pointer transition-all"
+                    className="flex items-center justify-between gap-3 p-2.5 bg-gray-50/50 hover:bg-gray-50 border border-card-border rounded-xl cursor-pointer transition-all"
                   >
                     <div className="flex items-center gap-2 flex-1 min-w-0 pr-3">
                       <div className="flex flex-col text-left truncate">
@@ -371,3 +371,4 @@ export default function AdviserRecommender({ onSelectTeacher, onSelectStudent }:
     </div>
   );
 }
+

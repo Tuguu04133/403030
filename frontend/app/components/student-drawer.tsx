@@ -47,13 +47,13 @@ export default function StudentDrawer({
 
       {/* Drawer Sheet */}
       <div 
-        className={`w-full max-w-lg bg-white h-full relative z-10 shadow-2xl flex flex-col transition-transform duration-300 ${
+        className={`w-full sm:max-w-lg bg-white h-full relative z-10 shadow-2xl flex flex-col transition-transform duration-300 ${
           isMounted ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
       >
         {/* Header */}
-        <div className="p-6 border-b border-card-border flex items-center justify-between shrink-0">
+        <div className="p-4 sm:p-6 border-b border-card-border flex items-center justify-between gap-3 shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-primary-teal flex items-center justify-center text-white">
               <FileSpreadsheet className="w-4 h-4" />
@@ -78,14 +78,14 @@ export default function StudentDrawer({
             <span className="text-xs text-gray-400 font-semibold">Онооны мэдээллийг ачаалж байна...</span>
           </div>
         ) : (
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 animate-fadeIn">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5 sm:space-y-6 animate-fadeIn">
             {/* Student metadata banner */}
-            <div className="bg-gray-50 border border-card-border p-4 rounded-2xl flex justify-between items-start gap-4">
+            <div className="bg-gray-50 border border-card-border p-4 rounded-2xl flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
               <div className="space-y-1.5 text-left">
                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Оюутны Мэдээлэл</span>
                 <h4 className="text-sm font-bold text-gray-800 leading-tight">{detail.name}</h4>
                 <p className="text-xs font-semibold text-gray-500">{detail.thesisTitle}</p>
-                <div className="flex items-center gap-2 mt-2">
+                <div className="flex flex-wrap items-center gap-2 mt-2">
                   <span className="text-[10px] bg-primary-teal/5 text-primary-teal font-extrabold px-2 py-0.5 rounded uppercase">{detail.topic}</span>
                   <span className="text-[10px] bg-gray-200 text-gray-600 font-extrabold px-2 py-0.5 rounded">{detail.classCode}</span>
                   <span className="text-[10px] bg-gray-200 text-gray-600 font-extrabold px-2 py-0.5 rounded">Комисс {detail.committeeId}</span>
@@ -108,7 +108,7 @@ export default function StudentDrawer({
               <div className="flex gap-4 items-start relative pb-4 border-l-2 border-gray-100 pl-4 ml-2">
                 <div className="w-5 h-5 rounded-full bg-primary-teal text-white flex items-center justify-center font-bold text-[9px] absolute -left-[11px] top-0.5 shadow-sm">1</div>
                 <div className="flex-1 text-xs">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-start justify-between gap-3">
                     <span className="font-bold text-gray-800">Удирдагч багшийн үнэлгээ</span>
                     <span className="font-extrabold text-gray-800">{detail.supervisorGrade} <span className="text-[10px] text-gray-400 font-semibold">/ 15</span></span>
                   </div>
@@ -123,7 +123,7 @@ export default function StudentDrawer({
               <div className="flex gap-4 items-start relative pb-4 border-l-2 border-gray-100 pl-4 ml-2">
                 <div className="w-5 h-5 rounded-full bg-primary-teal text-white flex items-center justify-center font-bold text-[9px] absolute -left-[11px] top-0.5 shadow-sm">2</div>
                 <div className="flex-1 text-xs">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-start justify-between gap-3">
                     <span className="font-bold text-gray-800">Комиссын эхний үзлэг</span>
                     <span className="font-extrabold text-gray-800">{detail.firstReviewGrade} <span className="text-[10px] text-gray-400 font-semibold">/ 20</span></span>
                   </div>
@@ -135,7 +135,7 @@ export default function StudentDrawer({
               <div className="flex gap-4 items-start relative pb-4 border-l-2 border-gray-100 pl-4 ml-2">
                 <div className="w-5 h-5 rounded-full bg-primary-teal text-white flex items-center justify-center font-bold text-[9px] absolute -left-[11px] top-0.5 shadow-sm">3</div>
                 <div className="flex-1 text-xs">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-start justify-between gap-3">
                     <span className="font-bold text-gray-800">Урьдчилсан хамгаалалт</span>
                     <span className="font-extrabold text-gray-800">{detail.preDefenseGrade} <span className="text-[10px] text-gray-400 font-semibold">/ 25</span></span>
                   </div>
@@ -147,7 +147,7 @@ export default function StudentDrawer({
               <div className="flex gap-4 items-start relative pb-4 border-l-2 border-gray-100 pl-4 ml-2">
                 <div className="w-5 h-5 rounded-full bg-primary-teal text-white flex items-center justify-center font-bold text-[9px] absolute -left-[11px] top-0.5 shadow-sm">4</div>
                 <div className="flex-1 text-xs">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-start justify-between gap-3">
                     <span className="font-bold text-gray-800">Шүүмжлэгч багшийн үнэлгээ</span>
                     <span className="font-extrabold text-gray-800">{detail.reviewerGrade} <span className="text-[10px] text-gray-400 font-semibold">/ 5</span></span>
                   </div>
@@ -162,7 +162,7 @@ export default function StudentDrawer({
               <div className="flex gap-4 items-start relative pl-4 ml-2">
                 <div className="w-5 h-5 rounded-full bg-primary-teal text-white flex items-center justify-center font-bold text-[9px] absolute -left-[11px] top-0.5 shadow-sm">5</div>
                 <div className="flex-1 text-xs space-y-3">
-                  <div className="flex justify-between items-center">
+                  <div className="flex items-start justify-between gap-3">
                     <div className="text-left">
                       <span className="font-bold text-gray-800 block">Жинхэнэ хамгаалалт</span>
                       <span className="text-[10px] text-accent-green font-bold block mt-0.5">Комиссын гишүүдийн дундаж</span>
@@ -225,3 +225,4 @@ export default function StudentDrawer({
     </div>
   );
 }
+

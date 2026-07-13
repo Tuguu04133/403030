@@ -170,16 +170,16 @@ export default function StudentsPage() {
   };
 
   return (
-    <div className="space-y-6 animate-fadeIn">
+    <div className="space-y-5 sm:space-y-6 animate-fadeIn">
       {/* Search Filter Header Card */}
-      <div className="bg-white rounded-2xl border border-card-border p-6 shadow-sm flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div className="bg-white rounded-2xl border border-card-border p-4 sm:p-6 shadow-sm flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div className="flex-1 text-left">
           <h3 className="text-sm font-bold text-gray-800 mb-2">Нарийвчилсан хайлт болон шүүлт</h3>
           <p className="text-xs text-gray-400 mb-4">
             Сэдвийн чиглэлийн шүүлт одоогоор:{" "}
             <span className="font-extrabold text-primary-teal">{filteredTopic || "Бүх сэдэв"}</span>
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <div className="relative flex-1">
               <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                 <Search className="w-4 h-4" />
@@ -195,7 +195,7 @@ export default function StudentsPage() {
             {filteredTopic && (
               <button
                 onClick={() => setFilteredTopic(null)}
-                className="px-4 py-2.5 bg-primary-teal/10 text-primary-teal rounded-xl text-xs font-semibold hover:bg-primary-teal/15 transition-all cursor-pointer shrink-0"
+                className="w-full sm:w-auto px-4 py-2.5 bg-primary-teal/10 text-primary-teal rounded-xl text-xs font-semibold hover:bg-primary-teal/15 transition-all cursor-pointer shrink-0"
               >
                 Сэдвийн шүүлт цуцлах
               </button>
@@ -207,7 +207,7 @@ export default function StudentsPage() {
         <button
           onClick={exportCSV}
           disabled={exporting}
-          className="flex items-center justify-center gap-2 bg-primary-teal text-white hover:bg-primary-teal-light disabled:opacity-50 px-5 py-2.5 rounded-xl text-xs font-bold shadow-sm transition-all duration-200 cursor-pointer h-[38px] shrink-0"
+          className="flex w-full md:w-auto items-center justify-center gap-2 bg-primary-teal text-white hover:bg-primary-teal-light disabled:opacity-50 px-5 py-2.5 rounded-xl text-xs font-bold shadow-sm transition-all duration-200 cursor-pointer min-h-[38px] shrink-0"
         >
           {exporting ? (
             <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -255,3 +255,4 @@ export default function StudentsPage() {
     </div>
   );
 }
+

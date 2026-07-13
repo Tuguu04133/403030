@@ -16,10 +16,11 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         <Header />
 
         {/* Scrollable page content */}
-        <main className="flex-1 overflow-y-auto p-8 w-full max-w-7xl mx-auto">
+        <main className="flex-1 overflow-y-auto px-4 py-5 pb-24 sm:px-6 lg:p-8 lg:pb-8 w-full max-w-7xl mx-auto">
           {children}
         </main>
       </div>
     </div>
   );
 }
+

@@ -11,7 +11,7 @@ interface CommitteeVarianceProps {
 
 export default function CommitteeVariance({ stats, globalAvg }: CommitteeVarianceProps) {
   return (
-    <div className="bg-white rounded-2xl p-6 border border-card-border shadow-sm flex flex-col h-full font-sans">
+    <div className="bg-white rounded-2xl p-4 sm:p-6 border border-card-border shadow-sm flex flex-col h-full font-sans">
       {/* Header */}
       <div className="flex items-center gap-2.5 mb-6">
         <Scale className="w-5 h-5 text-primary-teal" />
@@ -22,7 +22,7 @@ export default function CommitteeVariance({ stats, globalAvg }: CommitteeVarianc
       </div>
 
       {/* Global Average Info */}
-      <div className="flex items-center justify-between p-3 bg-gray-50 border border-card-border rounded-xl mb-4">
+      <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between p-3 bg-gray-50 border border-card-border rounded-xl mb-4">
         <span className="text-xs text-gray-500 font-semibold">Сонгосон үеийн глобал дундаж:</span>
         <span className="text-sm font-extrabold text-primary-teal">{globalAvg} / 100</span>
       </div>
@@ -34,9 +34,9 @@ export default function CommitteeVariance({ stats, globalAvg }: CommitteeVarianc
           const isPositive = stat.variance > 0;
           
           return (
-            <div key={stat.committeeId} className="flex items-center justify-between gap-4 text-xs group hover:bg-gray-50/50 p-1 rounded-lg transition-all">
+            <div key={stat.committeeId} className="flex items-center justify-between gap-3 text-xs group hover:bg-gray-50/50 p-1 rounded-lg transition-all">
               {/* Committee Name and Students Count */}
-              <div className="w-24 shrink-0">
+              <div className="w-20 sm:w-24 shrink-0">
                 <span className="font-bold text-gray-700 block">Комисс {stat.committeeId}</span>
                 <span className="text-[10px] text-gray-400">{stat.studentCount} оюутан</span>
               </div>
@@ -61,7 +61,7 @@ export default function CommitteeVariance({ stats, globalAvg }: CommitteeVarianc
               </div>
 
               {/* Values */}
-              <div className="w-24 text-right shrink-0 flex flex-col justify-center items-end">
+              <div className="w-16 sm:w-24 text-right shrink-0 flex flex-col justify-center items-end">
                 <span className="font-extrabold text-gray-800">{stat.avgGrade}</span>
                 
                 {hasVariance ? (
@@ -85,10 +85,11 @@ export default function CommitteeVariance({ stats, globalAvg }: CommitteeVarianc
       </div>
       
       {/* Legend footer */}
-      <div className="flex justify-between items-center text-[9px] text-gray-400 font-bold border-t border-gray-100 pt-3 mt-4 shrink-0">
+      <div className="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-center text-[9px] text-gray-400 font-bold border-t border-gray-100 pt-3 mt-4 shrink-0">
         <span>Зүүн тал: Чангa / Хатуу (Хасах зөрүү)</span>
         <span>Баруун тал: Зөөлөн / Өгөөмөр (Нэмэх зөрүү)</span>
       </div>
     </div>
   );
 }
+

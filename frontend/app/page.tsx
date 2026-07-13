@@ -128,7 +128,7 @@ export default function OverviewPage() {
   }, [filteredTopic, levelFilter]);
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-5 sm:space-y-8 animate-fadeIn">
       {isLoading && (
         <div className="fixed inset-0 bg-white/40 backdrop-blur-[1px] flex items-center justify-center z-50">
           <Loader2 className="w-10 h-10 text-primary-teal animate-spin" />
@@ -142,17 +142,17 @@ export default function OverviewPage() {
       )}
 
       {/* Overview Cards Row */}
-      <div className="grid grid-cols-3 gap-6 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
         {/* Average Grade Large Card (Teal) */}
-        <div className="col-span-2 bg-primary-teal rounded-2xl p-6 text-white flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-primary-teal-dark transition-all duration-300">
+        <div className="lg:col-span-2 bg-primary-teal rounded-2xl p-5 sm:p-6 text-white flex flex-col justify-between shadow-sm relative overflow-hidden group hover:bg-primary-teal-dark transition-all duration-300">
           <div className="absolute right-0 bottom-0 opacity-10 translate-x-12 translate-y-12 select-none pointer-events-none">
             <FileSpreadsheet className="w-64 h-64" />
           </div>
           
-          <div className="flex justify-between items-start z-10">
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start z-10">
             <div className="space-y-1">
               <span className="text-xs font-bold text-accent-green uppercase tracking-wider block">Хамгаалалтын дундаж дүн</span>
-              <h2 className="text-4xl font-extrabold tracking-tight leading-none mt-1">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-none mt-1">
                 {kpiStats.averageGrade} <span className="text-lg font-normal text-white/70">/ 100</span>
               </h2>
             </div>
@@ -163,7 +163,7 @@ export default function OverviewPage() {
             </span>
           </div>
 
-          <div className="border-t border-white/10 pt-4 mt-6 z-10 flex justify-between items-center text-xs">
+          <div className="border-t border-white/10 pt-4 mt-6 z-10 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center text-xs">
             <span className="text-white/60 font-semibold">Сонгосон улирлын нийт хамгаалалтын дундаж дүн</span>
             <Link 
               href="/students"
@@ -176,7 +176,7 @@ export default function OverviewPage() {
         </div>
 
         {/* Student Count KPI Card */}
-        <div className="col-span-1 bg-white border border-card-border rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:scale-[1.01] transition-transform duration-300">
+        <div className="bg-white border border-card-border rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm hover:scale-[1.01] transition-transform duration-300">
           <div className="flex justify-between items-start">
             <div className="space-y-1">
               <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block">Нийт оюутны тоо</span>
@@ -195,7 +195,7 @@ export default function OverviewPage() {
       </div>
 
       {/* Row of 2 Min/Max stats Cards */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         {/* Max Grade Card */}
         <div className="bg-white border border-card-border rounded-2xl p-5 flex items-center justify-between shadow-sm">
           <div className="space-y-1">
@@ -225,7 +225,7 @@ export default function OverviewPage() {
       </div>
 
       {/* Committee Variance & Grade Letter Distribution Grid */}
-      <div className="grid grid-cols-2 gap-6 items-stretch">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 items-stretch">
         <CommitteeVariance
           stats={committeeStats}
           globalAvg={kpiStats.averageGrade}
@@ -272,3 +272,4 @@ export default function OverviewPage() {
     </div>
   );
 }
+

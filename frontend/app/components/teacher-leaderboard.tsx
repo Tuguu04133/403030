@@ -20,7 +20,7 @@ export default function TeacherLeaderboard({
   return (
     <div className="space-y-6 font-sans">
       {/* 1. Strict vs Lenient Leaderboard Card */}
-      <div className="bg-white rounded-2xl p-6 border border-card-border shadow-sm">
+      <div className="bg-white rounded-2xl p-4 sm:p-6 border border-card-border shadow-sm">
         <div className="flex items-center gap-2.5 mb-6">
           <Award className="w-5 h-5 text-primary-teal" />
           <div>
@@ -29,7 +29,7 @@ export default function TeacherLeaderboard({
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
           {/* Strict Leaderboard */}
           <div className="space-y-3.5">
             <div className="flex items-center gap-1.5 text-xs font-bold text-primary-teal bg-primary-teal/5 px-3 py-1.5 rounded-xl">
@@ -42,14 +42,14 @@ export default function TeacherLeaderboard({
                 <div 
                   key={teacher.teacherId}
                   onClick={() => onSelectTeacher(teacher.teacherId)}
-                  className="flex items-center justify-between p-2.5 hover:bg-gray-50 border border-transparent hover:border-card-border rounded-xl cursor-pointer transition-all"
+                  className="flex items-center justify-between gap-3 p-2.5 hover:bg-gray-50 border border-transparent hover:border-card-border rounded-xl cursor-pointer transition-all"
                 >
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex min-w-0 items-center gap-2.5">
                     <span className="w-5 h-5 rounded-full bg-primary-teal/10 text-primary-teal flex items-center justify-center font-bold text-[10px] shrink-0">
                       {idx + 1}
                     </span>
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs font-bold text-gray-800 hover:text-primary-teal-light transition-colors">{teacher.name}</span>
+                    <div className="flex min-w-0 flex-col text-left">
+                      <span className="truncate text-xs font-bold text-gray-800 hover:text-primary-teal-light transition-colors">{teacher.name}</span>
                       <span className="text-[9px] text-gray-400 font-semibold uppercase">{teacher.expertise} чиглэл</span>
                     </div>
                   </div>
@@ -79,14 +79,14 @@ export default function TeacherLeaderboard({
                 <div 
                   key={teacher.teacherId}
                   onClick={() => onSelectTeacher(teacher.teacherId)}
-                  className="flex items-center justify-between p-2.5 hover:bg-gray-50 border border-transparent hover:border-card-border rounded-xl cursor-pointer transition-all"
+                  className="flex items-center justify-between gap-3 p-2.5 hover:bg-gray-50 border border-transparent hover:border-card-border rounded-xl cursor-pointer transition-all"
                 >
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex min-w-0 items-center gap-2.5">
                     <span className="w-5 h-5 rounded-full bg-accent-green/10 text-accent-green flex items-center justify-center font-bold text-[10px] shrink-0">
                       {idx + 1}
                     </span>
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs font-bold text-gray-800 hover:text-accent-green transition-colors">{teacher.name}</span>
+                    <div className="flex min-w-0 flex-col text-left">
+                      <span className="truncate text-xs font-bold text-gray-800 hover:text-accent-green transition-colors">{teacher.name}</span>
                       <span className="text-[9px] text-gray-400 font-semibold uppercase">{teacher.expertise} чиглэл</span>
                     </div>
                   </div>
@@ -107,9 +107,9 @@ export default function TeacherLeaderboard({
       </div>
 
       {/* 2. Expertise Impact Factor Card */}
-      {/* <div className="bg-white rounded-2xl p-6 border border-card-border shadow-sm">
+      {/* <div className="bg-white rounded-2xl p-4 sm:p-6 border border-card-border shadow-sm">
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2.5">
+          <div className="flex min-w-0 items-center gap-2.5">
             <Target className="w-5 h-5 text-primary-teal" />
             <div>
               <h3 className="text-sm font-bold text-gray-800">Мэргэшлийн Нөлөөллийн Индекс</h3>
@@ -154,3 +154,4 @@ export default function TeacherLeaderboard({
     </div>
   );
 }
+
